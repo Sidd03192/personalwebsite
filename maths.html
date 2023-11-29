@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> React </title>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        #app{
+            text-align: center;
+           font-family: sans-serif;
+
+        }
+        #question,#response,#score{
+            align-items: center;
+
+        }
+        #question{
+            font-size: 50px;
+            font-style: bold;
+        }
+        .incorrect{
+            color:red;
+        }
+        #win{
+            font-size:100px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function Login({onLogin}) {
+
+        const [state, setState] = React.useState({
+    username: "", password: "" ,incorect:false
+});
+
+        function updateu(event) {
+    setState({
+        ...state, username: event.target.value
+    })
+}
+
+        function updatep(event) {
+    setState({
+        ...state, password: event.target.value
+    })
+}
+
+        function login() {
+           //if (username==="hello" && password==-"hello")
+                onLogin();
+            
+           
+}
+
+        return (
+    <div className="page">
+        <h1 className="loginpage">Login Page</h1>
+        
+        <div className="inputs">
+        <div className="form-control">
+            <input onChange ={updateu} className="input input-alt" placeholder="Username" required="" type="text"/>
+            <span class="input-border input-border-alt"></span>
+        </div>
+
+        <div onChange={updatep} className="form-control">
+            <input className="input input-alt" placeholder="Password" required="" type="text"/>
+            <span className="input-border input-border-alt"></span>
+        </div>
+        <button className="login"onClick={login}>Login</button>
+        </div>
+    </div>
+);
+
+            
+        }
+        function App() {
+
+            //const [num1, setNum1]= React.useState(1);
+            //const [num2, setNum2]= React.useStaet(2);
+            //below is a better way to write it.this is a js object that stores 2 var 
+            const [state,setState] =React.useState({
+                num1:1,
+                num2:2,
+                response:"",
+                score:0,
+                incorrect:false,
+                
+            })
+            function update(event){
+                setState({
+                    ...state,
+                    // says the other stuf stays teh same except for whats below 
+                    response :event.target.value});
+                // u can take event as input since its a event listerner atr.
+            }
+            function inputKeyPress (event){
+                if(event.key==="Enter")
+                {
+                    const answer=parseInt(state.response);
+                    if (state.num1 + state.num2 ===answer)
+                    { //right
+                        setState({
+                            response:"",
+                            num1:Math.ceil(Math.random()*10),
+                            num2:Math.ceil(Math.random()*10),
+                            score: state.score+1,
+                            incorect:false
+                        });
+                        
+                    }
+                    else{
+                        //wrong
+                        setState({
+                            ...state,
+                            score: state.score-1,
+                            response:"",
+                            incorrect:true
+
+                        });
+                    }
+                }
+            }
+            if (state.score===10){
+                            return(
+                                <div id="win"> You WON!
+                                    </div>
+                            );
+                        }
+
+            return (
+            <div id="app">
+                <div className={state.incorrect ? "incorrect":""}id="question">{state.num1} + {state.num2}</div>  
+                <input id="response" onKeyPress={inputKeyPress} onChange = {update} value = {state.response}/>
+                <div id="score"> Score = {state.score}</div>
+                
+            </div>
+            );
+        }
+        function Main() {
+            const [loggedIn, setLoggedIn] = React.useState(false);
+
+            const handleLogin = () => {
+                setLoggedIn(true);
+            };
+
+            return (
+                <div>
+                    {loggedIn ? <App /> : <Login onLogin={handleLogin} />}
+                </div>
+            );
+        }
+
+
+        ReactDOM.render(<Main />, document.getElementById('root'));
+    </script>
+    
+</body>
+</html>

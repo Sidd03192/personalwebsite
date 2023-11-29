@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="card.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+    <div class="hero" id="hero">
+      <div id = progress-bar></div>
+        <div class = "navbar">
+            <img class = logo src="Logobright.png">
+            
+              <div class="navbtns" id="navbtns"> 
+                <header>
+                    <span></span>
+                   
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#scmoreme">Academic Resouces</a></li>
+                  <li><a href="#">Tools</a></li>
+                  <li><a href="#">Services</a></li>
+                  <div class="navanimation"></div>
+                  <button class = "signupbtn">Signup
+                  
+                    <span></span>
+    
+                </button>
+                
+                </header>         
+                 <section class="banner"></section> 
+                 
+               </div> 
+            
+
+           
+
+        </div>
+
+        <div class="content">
+          
+            <div class="main">
+
+                <h4>Welcome to my website...</h4><br>
+            <h1>A World of <br> <span class="auto-type"></span></h1>
+            <button class="learn-more">
+                Learn More
+              </button>
+            </div>
+            <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+            <script>
+              var typed = new Typed(".auto-type", {
+                strings:["Hope", "Happiness","Possibilities","Opportunities", "Faith", "Trust"],
+                typeSpeed:120,
+                backSpeed:120,
+                loop:true
+              })
+
+            </script>
+           
+        </div>
+        <div class="arrow">
+          <a href="#scmoreme">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
+        
+          
+       
+    </div>
+    <div class="sidebar"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <div class=" loader-wrapper "><span class="loader">
+        <span class="loader-inner"> </span>
+    </span></div>
+
+    </script>
+      <section id="scmoreme">
+        <div  class="moreme">
+          <div class="box" data-aos="fade-right" data-aos-duration="1000" click="redirectTo('https://google.com')">
+            <h2> About me! </h2>
+            <img class="me" src ="Untitled design (8).png" >
+            <p class="aboutme">Hey there! Thankyou for visiting my website. I'm Siddharth. I love to run, make jokes, and create cool things. <br> Click to learn more about me!  </p>
+          </div>
+          <!--<div class="boxes">
+              <div class="acontainer">
+                <div class="card">
+                  <div class="front"></div>
+                  <div class="back">
+                  <h1> Back of card</h1>
+                  <p> additional info</p>
+                </div>
+                </div>
+                </div>
+                <div class="acontainer">
+                  <div class="card">
+                    <div class="front"></div>
+                    <div class="back">
+                    <h1> Back of card</h1>
+                    <p> additional info</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="acontainer">
+                    <div class="card">
+                      <div class="front"></div>
+                      <div class="back">
+                      <h1> Back of card</h1>
+                      <p> additional info</p>
+                    </div>
+                    </div>
+                    </div>
+
+
+            
+
+
+          </div>-->
+          
+      </section>
+      
+   
+    
+
+     <script>
+        $(window).on("load",function(){
+          $(".loader-wrapper").fadeOut("slow");
+        });
+    </script>
+    <script defer src="website.js"></script>
+    <script type="text/javascript">
+
+      const bg = document.getElementsById('hero')
+      window.addEventListener('scroll',function(){
+        bg.style.backgroundSize= 160 - +window.pageYOffset+'%';
+      })
+    </script>
+
+
+<a  class= "cite" href="https://www.flaticon.com/free-icons/instagram" title="instagram icons">Instagram icons created by Freepik - Flaticon</a>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>
+
